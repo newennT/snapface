@@ -1,0 +1,19 @@
+<h1>{{ faceSnap.title }}</h1>
+<p>
+    {{ faceSnap.description }}
+</p>
+<p>
+    Created at: {{ faceSnap.createdDate | date:'longDate' }}
+</p>
+<p>
+    Snaps: {{ faceSnap.snaps }}
+</p>
+
+<div>
+    <button (click)="onAddSnap()">
+        {{ snapButtonText}}
+    </button>
+</div>
+
+
+<img [src]="faceSnap.imageUrl" alt="Image" width="500">
