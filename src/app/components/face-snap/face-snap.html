@@ -1,19 +1,29 @@
-<h1>{{ faceSnap.title }}</h1>
-<p>
-    {{ faceSnap.description }}
-</p>
-<p>
-    Created at: {{ faceSnap.createdDate | date:'longDate' }}
-</p>
-<p>
-    Snaps: {{ faceSnap.snaps }}
-</p>
+<div class="face-snap-card" [ngClass]="{ snapped: userHasSnapped }">
+    <h1>{{ faceSnap.title }}</h1>
+    
+    @if(faceSnap.location){
+        <p>
+            Location: {{ faceSnap.location }}
+        </p>
+    } @else {
+        <p>Localisation non spécifiée</p>
+    }    
+    
+    <img [src]="faceSnap.imageUrl" alt="Image" width="500">
 
-<div>
-    <button (click)="onAddSnap()">
-        {{ snapButtonText}}
-    </button>
+    <p>{{ faceSnap.description }}</p>
+    <p>Created at: {{ faceSnap.createdDate | date:'longDate' }}</p>
+  
+
+    <div>
+        <button (click)="onAddSnap()">
+            {{ snapButtonText}}
+        </button>
+        <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)'}">
+            {{ faceSnap.snaps }}
+        </span>
+        
+    </div>
+
 </div>
 
-
-<img [src]="faceSnap.imageUrl" alt="Image" width="500">
