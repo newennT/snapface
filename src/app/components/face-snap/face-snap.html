@@ -1,5 +1,5 @@
 <div class="face-snap-card" [ngClass]="{ snapped: userHasSnapped }">
-    <h1>{{ faceSnap.title }}</h1>
+    <h1>{{ faceSnap.title |  titlecase }}</h1>
     
     @if(faceSnap.location){
         <p>
@@ -12,7 +12,7 @@
     <img [src]="faceSnap.imageUrl" alt="Image" width="500">
 
     <p>{{ faceSnap.description }}</p>
-    <p>Created at: {{ faceSnap.createdDate | date:'longDate' }}</p>
+    <p>Created at: {{ faceSnap.createdDate | date: 'd MMMM yyyy, à HH:mm' }}</p>
   
 
     <div>
@@ -24,6 +24,11 @@
         </span>
         
     </div>
+
+    <p>{{ myLargeNumber | number }}</p>
+    <p>{{ myLargeNumber | number: '1.0-0' }}</p>
+    <p>{{ myPercentage | percent: '1.0-1' }}</p>
+    <p>{{ myCurrency | currency: 'EUR' }}</p>
 
 </div>
 
