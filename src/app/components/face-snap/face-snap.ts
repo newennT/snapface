@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { NgClass, TitleCasePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
 import { FaceSnap } from '../../models/face-snap';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-face-snap',
-  imports: [NgClass, TitleCasePipe],
+  imports: [TitleCasePipe],
   templateUrl: './face-snap.html',
   styleUrl: './face-snap.scss',
 })
